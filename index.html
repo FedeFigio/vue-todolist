@@ -16,7 +16,7 @@
             <h1>To Do </h1>
             <ul>
                 <li v-for="todo in todosComputed">
-                    <span>{{todo.title}}</span>
+                    <span @click="edit(todo)">{{todo.title}}</span>
                     <div class="icon">
                         <span @click="edit(todo)" v-if="todo.status != 'done'"><i class="fas fa-pencil-alt"></i></span>
                         <span @click="check(todo)" v-if="todo.status != 'done'"><i class="fas fa-check"></i></span>
@@ -30,7 +30,7 @@
             <h1>Completed</h1>
             <ul>
                 <li v-for="(finished, index) in finish">
-                    <span class="title" :class="(finished.status == 'done') ? 'through' : '' ">{{finished.title}}</span>
+                    <span @click="edit(finished)" class="title" :class="(finished.status == 'done') ? 'through' : '' ">{{finished.title}}</span>
                     <div class="icon">
                         <span @click="edit(finished)"><i class="fas fa-pencil-alt"></i></span>
                         <span @click="remove(finished)" v-if="finished.status == 'done'"><i class="fas fa-trash"></i></span>
