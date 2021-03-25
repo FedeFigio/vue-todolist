@@ -18,7 +18,7 @@
                 <li v-for="todo in todosComputed">
                     <span :class="(todo.status == 'done') ? 'through' : '' " class="title">{{todo.title}}</span>
                     <div class="icon">
-                        <span v-if="todo.status != 'done'"><i class="fas fa-pencil-alt"></i></span>
+                        <span @click="edit(todo)" v-if="todo.status != 'done'"><i class="fas fa-pencil-alt"></i></span>
                         <span @click="check(todo)" v-if="todo.status != 'done'"><i class="fas fa-check"></i></span>
                         <span @click="remove(todo)" v-if="todo.status == 'done'"><i class="fas fa-trash"></i></span>
                     </div>
