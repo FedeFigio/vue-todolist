@@ -13,7 +13,7 @@
 <body>
     <div id="root">
         <div class="container">
-            <h1>To DoList </h1>
+            <h1>To Do </h1>
             <ul>
                 <li v-for="todo in todosComputed">
                     <span :class="(todo.status == 'done') ? 'through' : '' " class="title">{{todo.title}}</span>
@@ -27,6 +27,15 @@
             <input v-model="inputTxt" type="text" @keyup.enter="add">
         </div>
         <div class="container">
+            <h1>Completed</h1>
+            <ul>
+                <li v-for="(finished, index) in finish">
+                    <span>{{finished.title}}</span>
+                    <span @click="remove(finished)" v-if="finished.status == 'done'"><i class="fas fa-trash"></i></span>
+                </li>
+            </ul>
+
+
         </div>
     </div>
 

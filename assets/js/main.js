@@ -1,7 +1,7 @@
 var app = new Vue({
     el: "#root",
     data: {
-
+        finish: [],
         inputTxt: "",
         arrayTodos: [{
                 title: "fare la spesa",
@@ -54,8 +54,8 @@ var app = new Vue({
         todosComputed: function() {
             let todosDone = this.arrayTodos.filter((todo) => todo.status == "done")
             let todosTodo = this.arrayTodos.filter((todo) => todo.status == "todo")
-
-            return [...todosTodo, ...todosDone]
+            this.finish = todosDone
+            return todosTodo
         }
     }
 })
