@@ -43,6 +43,7 @@ input {
     margin: 0 auto;
     padding: 10px;
     filter: drop-shadow( 5px 5px 5px #202020);
+    border-radius: 10px;
 }
 
 .title.through {
